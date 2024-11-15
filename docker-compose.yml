@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  ab_redis:
+    image: redis:latest
+    container_name: ab_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - ab_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  ab_bot:
+    build: ./app
+    container_name: ab_bot
+    restart: always
+    env_file:
+      - .env.docker
+    depends_on:
+      ab_redis:
+        condition: service_healthy
+    networks:
+      - ab_network
+
+networks:
+  ab_network:
