@@ -68,7 +68,9 @@ docker-compose up --build
 * Тест Краскела-Уоллиса для независимых выборок (если распределение хотя бы одной выборки не нормальное)
 
 Пример работы бота:
-<img src="AB_bot.png" width="538" height="797" alt="Пример работы бота">
+
+<img src="AB_bot.png" width="269" height="398" alt="Пример работы бота">
 
 Пример записи в Google Sheets:
+
 <img src="GS.png" width="534" height="320" alt="Пример записи в GS">
